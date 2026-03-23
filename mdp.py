@@ -14,14 +14,18 @@ decale_upper = alpha_upper[3:] + alpha_upper[:3]
 like_lower = dict(zip(alpha_lower, decale_lower))
 like_upper = dict(zip(alpha_upper, decale_upper))
 
-result = ""
+result_alpha = ""
+result_digit = ""
 
 for c in password:
     if c.isalpha() and c.islower():
-        result += like_lower[c]
+        result_alpha += like_lower[c]
     elif c.isalpha() and c.isupper():
-        result += like_upper[c]
+        result_alpha += like_upper[c]
+    elif c.isdigit():
+        result_digit += c * 2
     else:
-        result += c
+        result_alpha += c
 
-print(result)
+print(result_alpha + result_digit)
+
