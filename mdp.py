@@ -1,4 +1,5 @@
 import string
+import random
 
 alpha_lower = list(string.ascii_lowercase)
 alpha_upper = list(string.ascii_uppercase)
@@ -13,21 +14,17 @@ while len(password) < 6:
 while not any(c.isupper() for c in password):
      password = input("Enter a password with a minimum of one maj : ")
 
-decale_lower = alpha_lower[3:] + alpha_lower[:3]
-decale_upper = alpha_upper[3:] + alpha_upper[:3]
-
-like_lower = dict(zip(alpha_lower, decale_lower))
-like_upper = dict(zip(alpha_upper, decale_upper))
-
 result_alpha = ""
 result_digit = ""
 result_spe = ""
 
 for c in password:
+    decale_lower = random.choice(alpha_lower)
+    decale_upper = random.choice(alpha_upper)
     if c.isalpha() and c.islower():
-        result_alpha += like_lower[c]
+        result_alpha += decale_lower
     elif c.isalpha() and c.isupper():
-        result_alpha += like_upper[c]
+        result_alpha += decale_upper
     elif c.isdigit():
         result_digit += c * 2
     elif c in special_chars:
