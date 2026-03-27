@@ -21,12 +21,16 @@ result_spe = ""
 for c in password:
     decale_lower = random.choice(alpha_lower)
     decale_upper = random.choice(alpha_upper)
+    number = c.isdigit()
     if c.isalpha() and c.islower():
         result_alpha += decale_lower
     elif c.isalpha() and c.isupper():
         result_alpha += decale_upper
-    elif c.isdigit():
-        result_digit += c * 2
+    elif number:
+        if int(c) < 3:
+            result_digit += c * 2
+        else:
+            result_digit += c
     elif c in special_chars:
         result_spe += c
     else:
