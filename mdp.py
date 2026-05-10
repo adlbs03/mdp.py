@@ -1,6 +1,9 @@
 import string
 import random
 
+def main():
+    ...
+
 alpha_lower = list(string.ascii_lowercase)
 alpha_upper = list(string.ascii_uppercase)
 
