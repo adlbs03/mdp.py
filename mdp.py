@@ -2,12 +2,7 @@ import string
 import random
 
 def main():
-    ...
-
-alpha_lower = list(string.ascii_lowercase)
-alpha_upper = list(string.ascii_uppercase)
-
-special_chars = set('[@_!#$%^&*()<>?/\\|}{~:]')
+    print(result_alpha + result_digit + result_spe)
 
 password = input("Enter a password : ")
 
@@ -15,7 +10,12 @@ while len(password) < 6:
     password = input("Enter a password with more than 6 chars : ")
 
 while not any(c.isupper() for c in password):
-     password = input("Enter a password with a minimum of one maj : ")
+    password = input("Enter a password with a minimum of one maj : ")
+
+alpha_lower = list(string.ascii_lowercase)
+alpha_upper = list(string.ascii_uppercase)
+
+special_chars = set('[@_!#$%^&*()<>?/\\|}{~:]')
 
 result_alpha = ""
 result_digit = ""
@@ -39,5 +39,6 @@ for c in password:
     else:
         result_alpha += c
 
-print(result_alpha + result_digit + result_spe)
+if __name__ == '__main__':
+    main()
 
